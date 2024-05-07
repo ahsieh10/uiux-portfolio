@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css"/>
+    <link rel="icon" type="image/png" href="../images/SmallIcon.png">
+    <title>Allison Hsieh</title>
+</head>
+<body>
+    <header>
+        <h4>Allison Hsieh</h4>
+        <ul class="navbar">
+          <li>
+            <a href="../index.html" class="other">About</a>
+          </li>
+          <li>
+            <a href="../pages/projects.html">Projects</a>
+          </li>
+        </ul>
+      </header>
+  <div class="container">
+    <div class="title">
+        <h1>Responsive Redesign of Brown's CS19 Website</h1>
+        <h4>HTML/CSS, Spring 2024</h4>
+    </div>
+    <div class="body">
+        <p>
+            This project was an HTML/CSS based project intended to resolve the accessibility issues related to the Brown CS19 course website. I was inspired to do this project because despite spending <b>three years</b> with this course as a student, TA, and Head TA, <b>I still struggled with navigating the website</b> at times. 
+        </p>
+        <p>To revamp this design, I created speed sketches and compiled elements that I liked into a final sketch, created low fidelity, style guides, and high fidelity wireframes in Figma, then deployed my final redesigned webpage in Github Pages <a href="https://ahsieh10.github.io/responsive-redesign/">here</a>.</p>
+        <h2>Identifying Problems</h2>
+        <img src="../images/CS191.png">
+        <img src="../images/CS192.png">
+        <figure>
+            <img src="../images/CS19Mobile.PNG" class="mobile">
+            <figcaption>The mobile view of the site is cut off.</figcaption>
+        </figure>
+        <p>With accessibility principles in mind, the main issues that I noticed with the CS19 website were the following:</p>
+        <ul>
+            <li><b>No UI change to indicate clickability</b>
+                <ul>
+                    <li>
+                        The lack of hover and click effects makes it difficult to distinguish between clickable elements (buttons, links) and non-clickable elements (plain labels).
+                    </li>
+                </ul>
+            </li>
+            <li><b>The lack of responsiveness to screen size</b>
+                <ul>
+                    <li>
+                        When opening the website on a mobile page, only half of the page is displayed, and the clickable elements are so small that it is difficult to click on the navigation bar elements with a finger.
+                    </li>
+                </ul>
+            </li>
+            <li><b>The lack of page hierarchy usage</b>
+                <ul>
+                    <li>
+                        The headers and body look identical in font except for the boldness of the headers (which is not very noticeable), resulting in a large chunk of text that is quite overwhelming.
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <h2>Speed Sketching</h2>
+        <p>
+            To brainstorm ideas to solve these issues, I speed-sketched 9 potential ideas. I then combined the features that I liked from each design into one final sketch before creating a low-fidelity wireframe in Figma.
+        </p>
+        <img src="../images/SpeedSketch.png" class="mobile">
+        <img src="../images/FinalSketch.png" class="mobile">
+        <p>
+            The final sketch features larger navigation bar elements with representative icons, moving the table of contents to the empty space on the right, and the use of blocked headers for better page hierarchy.
+        </p>
+        <h2>
+            Lo-Fi Wireframes/Hi-Fi Wireframes
+        </h2>
+        <img src="../images/Desktop.png" class="iterative">
+        <img src="../images/DesktopHi.png">
+        <p>
+            When developing my wireframes from my sketches, besides flushing out the precise sizing of the components, I mainly focused on annotating the interactive behavior of the webpage for the desktop version.
+        </p>
+        <p>
+            I was also prompted to think about how to rearrange the components of my page to fit on a mobile device, as the proportions of the screen are more wide than long. 
+        </p>
+        <img src="../images/Tablet.png" class="lofi">
+        <img src="../images/TabletHi.png" class="mobile">
+        <p>
+            For the tablet version, I decided to move the table of contents back to the left hand side and the credits to the bottom of the middle section. The idea was to have the left sidebar persist as the user scrolled through the page, while the credits would only be seen when the user scrolled to the bottom (as it was not as essential as the sidebar).
+        </p>
+        <img src="../images/Phone.png">
+        <img src="../images/PhoneHi.png">
+        <p>
+            For the phone version, the credits would still go on the bottom, but the navigation bar and contents bar would be compressed into dropdowns.
+        </p>
+        <h2>
+            The Final Product
+        </h2>
+        <p>
+            The <a href="https://ahsieh10.github.io/responsive-redesign/">final redesigned webpage</a> featured the following changes:
+            <ul>
+                <li><b>Larger clickable elements</b>
+                    <ul>
+                        <li>
+                            The navigation bar and the contents bar feature buttons that can be clicked easily with the finger and mouse instead of small links.
+                        </li>
+                    </ul>
+                </li>
+                <li><b>Components responsive to page size</b>
+                    <ul>
+                        <li>
+                            When the size of the screen shrinks to certain dimensions, the components of the page rearrange to fit on the screen as demonstrated in the Hi-Fi Prototype.
+                        </li>
+                    </ul>
+                </li>
+                <li><b>Hover and Click Effects</b>
+                    <ul>
+                        <li>
+                            When hovering and clicking over the elements of the navigation bar, the contents bar, and the links on the page, the UI changes to indicate clickability.
+                        </li>
+                    </ul>
+                </li>
+                <li><b>Varied Blocked Headers</b>
+                    <ul>
+                        <li>
+                            To break up the large block of text in the original webpage, blocked headers were added. Larger headers had a larger font size and pink border to distinguish from smaller headers.
+                        </li>
+                    </ul>
+                </li>
+                <li><b>Contrast of Color</b>
+                    <ul>
+                        <li>
+                            The colors of the webpage were changed to fit WAIVE standards.
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </p>
+        <img src="../images/FinalProduct.png">
+        <h2>Takeaways</h2>
+        <p>
+            Recreating my mockups in HTML and CSS created more challenges for me than I had anticipated. First of all, I had to throw away the icons that I had planned in my hi-fi because the proportions were distorted and <b>I struggled to make the icons center</b> with the words on the button. I also spent a decent amount of time trying to <b>recreate the screen-responsive element arrangement</b>  that I had dictated in my hi-fi. This required duplicating the elements to appear and disappear on certain screen sizes and some tweaking of component sizes.
+        </p>
+        <p>
+            I also found that while it was easy to point out accessibility issues to existing websites, it was quite difficult to make corrections to the issues in practice. I ran into many technical and non-technical issues trying to brainstorm and bring a design to life with HTML and CSS, and this was also my <b>first experience with using Figma</b>. The largest challenge was occasionally looking back and thinking, <b>“Is my design really better than the original?”</b>
+        </p>
+        <p>
+            Overall, as my first exposure to design-oriented front end development, I was able to <b>gain an understanding of the thought process</b> that UIUX designers go through when creating a new website, which was very rewarding.
+        </p>
+    </div>
+  </div>
+</body>
+</html>

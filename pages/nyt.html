@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css"/>
+    <link rel="icon" type="image/png" href="../images/SmallIcon.png">
+    <title>Allison Hsieh</title>
+</head>
+<body>
+  <header>
+    <h4>Allison Hsieh</h4>
+    <ul class="navbar">
+      <li>
+        <a href="../index.html" class="other">About</a>
+      </li>
+      <li>
+        <a href="../pages/projects.html">Projects</a>
+      </li>
+    </ul>
+  </header>
+  <div class="container">
+    <h1>NYT Sentiment Analysis: An Interactive News Bias Detector</h1>
+    <h4>Java/ReactJS, Spring 2023</h4>
+    <p>I worked as a part of a <b>group of 4</b> on a full-stack application that, based on a user’s inputted query, <b>retrieved relevant New York Times articles</b> and <b>displayed the general sentiment rating</b> associated with those articles (positive, neutral, or negative) using the MeaningCloud API. </p>
+    <p>
+        I was in charge of the logic for <b>querying</b> the New York Times API, <b>compiling and processing</b> the useful information, and <b>passing it to the sentiment analysis component</b>. I also implemented <b>caching logic</b> for both the searching and sentiment analysis components.
+    </p>
+    <h2>Project Demo</h2>
+    <img src="../images/NYT1.png" class="iterative">
+    <img src="../images/NYT2.png" class="iterative">
+    <h2>General Project Design</h2>
+    <p>Since the four of us were all working on separate components, we communicated extensively on what the expected input and output would look like from each of our components. </p>
+    <p>Specifically in between the group member in charge of sentiment analysis and I, we decided on sharing a <b>central response creator class</b> that took each of our components as parameters. This class’s logic would be simple: it would take the given keyword, feed it into the search component, feed the output directly into the sentiment component, then pass the generated output back to the front end. This allowed us to <b>develop our components separately</b> and then latch them together at the end.
+    </p>
+    <p>
+        We also decided to pass around a List&lt;Article&gt; from one component to the next. We decided on a <b>custom Article class</b> that contained information like relevant keywords, abstract, and 8 other categories of information because we wanted to <b>provide guarantees</b> on what information was available.
+    </p>
+    <p>This is the general flow of execution:</p>
+    <img src="../images/NYT3.png">
+    <h2>Parsing the New York Times Data</h2>
+    <p>My role in this project was mainly working on processing the New York Times API data and filtering out and formatting the information in a way that is usable by the front end.</p>
+    <p>
+        When making a request to the New York Times API, the response is a list of large JSONs with many parameters. To create the final Article object, <b>I kept and processed the following parameters</b>:
+    </p>
+    <ul>
+        <li>Lead Paragraph</li>
+        <li>Keywords</li>
+        <li>Main Headline</li>
+        <li>Abstract</li>
+        <li>Snippet</li>
+        <li>Word Count</li>
+        <li>URL to main article</li>
+        <li>URLs to thumbnail images (if none, a dummy key is placed in the article)</li>
+        <li>Publish Date</li>
+    </ul>
+    <p>Out of these parameters, we chose to use the <b>lead paragraphs</b> in our sentiment analysis, since the lead paragraph usually contains the general stance of the article. The rest of the parameters were used for display purposes, and the keywords were used to perform relevant queries if the user desired.</p>
+    <figure>
+      <img src="../images/NYTAPI.png" class="nyt">
+      <figcaption>A peek at the format of the New York Times API response.</figcaption>
+    </figure>
+    <h2>Cache Usage</h2>
+    <p>To avoid the redundancy of repeatedly querying the New York Times API and MeaningCloud API for identical keywords, I constructed a <b>cache that stored previously generated results</b> using the Google Guava Cache API. The cache would contain mappings of keywords to serialized JSONs of the articles and sentiment results. This way, the front end would be able to retrieve results fast for queries that have already been performed, which is very <b>useful for popular keywords.</b></p>
+    <h2>Conclusion</h2>
+    <p>This was not my first experience working on a full-stack project, but it was my first time working on a larger-scale full-stack project with a group. Through this, I realized how key <b>communication</b> was in such an environment: setting code aside to decide on a well-defined design as a group helped us work efficiently in parallel, and integrating the components together was a very smooth process.
+    </p>
+    <p>
+        In addition, this project also challenged me to <b>think carefully about design decisions</b> within my own component. Because I was creating this functionality from scratch, I often found myself <b>thinking about tradeoffs</b> between designs (should I leave this data in a list or construct a class?), which was a very stimulating experience. I was also able to gain further exposure to using Java Spark and the Google Guava Cache API.
+    </p>
+    <p>
+        Overall, this was a very enjoyable trip into full-stack development, and I not only refined my skills in back end development but was also able to learn more about React from my front-end oriented group mates!
+    </p>
+  </div>
+</body>
+</html>
